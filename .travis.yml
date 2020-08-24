@@ -15,10 +15,10 @@ before_script:
 
 script:
   - docker --version
-  - docker build -t udagram-feed-restapi .
-  - docker tag udagram-feed-restapi "$DOCKER_USERNAME"/udagram-feed-restapi:latest
+  - docker build -t udagram-feed .
+  - docker tag udagram-feed "$DOCKER_USERNAME"/udagram-feed:latest
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push "$DOCKER_USERNAME"/udagram-feed-restapi
+  - docker push "$DOCKER_USERNAME"/udagram-feed
 
